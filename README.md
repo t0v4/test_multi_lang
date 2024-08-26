@@ -31,3 +31,8 @@ OP Code | JS Support | PY Support | Explanation | Usage
 `sav` | ✅ | ✅ | Sets array `a`'s value at index `b` to the value `c` | `sav <{a}> (b) <c>;`
 `idn` | ✅ | ✅ | Sets current line ident to value `a` | `idn (a);`
 `gc` | ✅ | ✅ | Gets compiler constant with name `a` and writes to variable `b` | `gc <{a}> <{b}>;`
+`fiv` | ✅ | ✅ | Iterates through each element of `a` and calls the `b` function with each key | `fiv <{a}> <{b}>;`
+`whl` | ✅ | ✅ | While condition `a` is true, continues the execution  | `whl {a};`
+`imp` | ❌ | ✅ | Imports module `a` | `imp <{a}>;`
+`imf` | ❌ | ✅ | Imports module(s) `a` from package `b` | `imf [a] <{b}>;`
+`ima` | ❌ | ✅ | Imports module `a` as `b` | `ima <{a}> <{b}>;`
