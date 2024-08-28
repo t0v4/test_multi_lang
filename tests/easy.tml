@@ -1,0 +1,23 @@
+sfun get_buff w symbol;nwl;idn 1;
+var buffer_temp "";nwl;idn 1;
+var _ 0;nwl;idn 1;
+whl "_ < w";nwl;idn 2;
+add buffer_temp symbol buffer_temp;nwl;idn 2;
+add _ 1 _;nwl;idn 1;
+efun;nwl;idn 1;
+ret buffer_temp;nwl;
+efun;nwl;
+
+
+sfun sqr w h sym;nwl;idn 1;
+var cntr_y 0;nwl;idn 1;
+var buff "";nwl;idn 1;
+whl "cntr_y < h";nwl;idn 2;
+gfun get_buff buff w sym;nwl;idn 2;
+wrt buff;nwl;idn 2;
+add cntr_y 1 cntr_y;nwl;idn 1;efun;
+nwl;efun;nwl;
+
+cfun sqr 10 5 "#";
+
+END;

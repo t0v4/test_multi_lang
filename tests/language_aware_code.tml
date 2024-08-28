@@ -1,0 +1,4 @@
+gc lang LANGUAGE;nwl;
+add "Currently using: " LANGUAGE LANGUAGE;nwl;
+wrt LANGUAGE;nwl;
+END;
