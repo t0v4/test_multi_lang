@@ -34,7 +34,15 @@ class Compiler():
         ops = loc1.splitlines()
         loc1 = b""
         for op in ops:
-            loc1 += op.strip().encode()
+            op_code = op.split(" ")[0]
+            op_code.replace(";","")
+            op_split = op_code.split("_")
+            if len(op_split) > 1:
+                target_op_language = op_split[1]
+                if (TARGET_LANG == target_op_language):
+                    loc1 += op.strip().replace("_"+target_op_language,"").encode()
+            else:
+                loc1 += op.strip().encode()
         loc1 = io.BytesIO(loc1)
         self.log.info(f"Started compilation for {input_name}; Target language: ({TARGET_LANG})")
         if not self.langs.get(TARGET_LANG):
@@ -48,6 +56,7 @@ class Compiler():
 compile_options = sys.argv
 comp = Compiler()
 output_array = compile_options[2].split("/")
+input_array = compile_options[1].split("/")
 if len(output_array) > 1:
     for output_fl in output_array:
         comp.compile(compile_options[1],output_fl)

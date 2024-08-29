@@ -34,7 +34,7 @@ OP Code | JS Support | PY Support | Explanation | Usage
 `fiv` | ✅ | ✅ | Iterates through each element of `a` and calls the `b` function with each key | `fiv <{a}> <{b}>;`
 `whl` | ✅ | ✅ | While condition `a` is met, continues the execution  | `whl {a};`
 `imp` | ❌ | ✅ | Imports module `a` | `imp <{a}>;`
-`imf` | ❌ | ✅ | Imports module(s) `a` from package `b` | `imf [a] <{b}>;`
+`imf` | ✅ | ✅ | Imports module(s) `a` from package `b` | `imf [a] <{b}>;`
 `ima` | ❌ | ✅ | Imports module `a` as `b` | `ima <{a}> <{b}>;`
 `raw` | ✅ | ✅ | Pastes raw code from argument `a` into the file. Not language-universal. | `raw {a};`
 `###` | ✅ | ✅ | Adds a comment line into the code with argument `a` as text | `### {a};`
@@ -47,3 +47,4 @@ OP Code | JS Support | PY Support | Explanation | Usage
 `eif` | ✅ | ✅ | `Else If` operator support | `eif {a};`
 `els` | ✅ | ✅ | `Else` operator support | `els;`
 `END` | ✅ | ✅ | Marks the end of the .tml script | `END;`
+`exfun` | ✅ | ❌ | Works just like `sfun` except it exports the function | `exfun <{a}> [b];`

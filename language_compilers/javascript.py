@@ -183,7 +183,25 @@ class JavascriptCompiler():
             if (len(args) > 0):
                 loc2 = loc2[:-1]
             loc2 += "){"
-            
+        elif opcode == "exfun":
+            function_name = parsed_command["arg_0"]
+            loc2 += f"export function {function_name}("
+            current_arg = 1
+            current_arg_check = parsed_command.get(f"arg_{current_arg}")
+            args = []
+            while current_arg_check:
+                args.append(current_arg_check)
+                current_arg += 1
+                current_arg_check = parsed_command.get(f"arg_{current_arg}")
+
+            for arg in args:
+                if (self.variables.get(arg) and self.toggle_contant_evaluation):
+                    arg = self.variables.get(arg)
+                loc2 += str(arg)
+                loc2 += ","
+            if (len(args) > 0):
+                loc2 = loc2[:-1]
+            loc2 += "){"
         elif opcode == "efun":
             loc2 += "}"
         elif opcode == "gfun":
@@ -255,13 +273,6 @@ class JavascriptCompiler():
             rule = rule[:-1]
             rule = rule[1:]
             loc2 += f"while({rule}){{"
-        elif opcode == "imp":
-            package_name = parsed_command["arg_0"]
-            loc2 += f"import {package_name}"
-        elif opcode == "ima":
-            package_name = parsed_command["arg_0"]
-            as_name = parsed_command["arg_1"]
-            loc2 += f"import {package_name} as {as_name}"
         elif opcode == "imf":
             package_name = parsed_command["arg_0"]
             current_arg = 1
@@ -272,11 +283,11 @@ class JavascriptCompiler():
                 current_arg += 1
                 current_arg_check = parsed_command.get(f"arg_{current_arg}")
 
-            loc2 += "import "
+            loc2 += "import {"
             for arg in args:
                 loc2 += arg+", "
             loc2 = loc2[:-2]
-            loc2 += f" from {package_name}"
+            loc2 += f"}} from \"{package_name}\""
         elif opcode == "raw":
             raw_code = parsed_command["arg_0"]
             raw_code = raw_code[1:]
