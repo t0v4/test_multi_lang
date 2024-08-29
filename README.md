@@ -32,7 +32,18 @@ OP Code | JS Support | PY Support | Explanation | Usage
 `idn` | ✅ | ✅ | Sets current line ident to value `a` | `idn (a);`
 `gc` | ✅ | ✅ | Gets compiler constant with name `a` and writes to variable `b` | `gc <{a}> <{b}>;`
 `fiv` | ✅ | ✅ | Iterates through each element of `a` and calls the `b` function with each key | `fiv <{a}> <{b}>;`
-`whl` | ✅ | ✅ | While condition `a` is true, continues the execution  | `whl {a};`
+`whl` | ✅ | ✅ | While condition `a` is met, continues the execution  | `whl {a};`
 `imp` | ❌ | ✅ | Imports module `a` | `imp <{a}>;`
 `imf` | ❌ | ✅ | Imports module(s) `a` from package `b` | `imf [a] <{b}>;`
 `ima` | ❌ | ✅ | Imports module `a` as `b` | `ima <{a}> <{b}>;`
+`raw` | ✅ | ✅ | Pastes raw code from argument `a` into the file. Not language-universal. | `raw {a};`
+`###` | ✅ | ✅ | Adds a comment line into the code with argument `a` as text | `### {a};`
+`sfun` | ✅ | ✅ | Creates a function with name `a` and arguments `b` | `sfun <{a}> [b];`
+`efun` | ✅ | ✅ | Ends function with a closing character (For JS Support) | `efun;`
+`gfun` | ✅ | ✅ | Gets return value of function `a` with arguments `b` and writes it to the variable `c` | `gfun <{a}> [b] <{c}>;`
+`cfun` | ✅ | ✅ | Calls function `a` with arguments `b` | `cfun <{a}> [b];`
+`ret` | ✅ | ✅ | Returns value(s) `a` | `ret [a];`
+`if` | ✅ | ✅ | If condition `a` is met, continues execution | `if {a};`
+`eif` | ✅ | ✅ | `Else If` operator support | `eif {a};`
+`els` | ✅ | ✅ | `Else` operator support | `els;`
+`END` | ✅ | ✅ | Marks the end of the .tml script | `END;`
