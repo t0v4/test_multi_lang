@@ -40,7 +40,7 @@ OP Code | JS Support | PY Support | Explanation | Usage
 `###` | ✅ | ✅ | Adds a comment line into the code with argument `a` as text | `### {a};`
 `sfun` | ✅ | ✅ | Creates a function with name `a` and arguments `b` | `sfun <{a}> [b];`
 `efun` | ✅ | ✅ | Ends function with a closing character (For JS Support) | `efun;`
-`gfun` | ✅ | ✅ | Gets return value of function `a` with arguments `b` and writes it to the variable `c` | `gfun <{a}> [b] <{c}>;`
+`gfun` | ✅ | ✅ | Gets return value of function `a` with arguments `c` and writes it to the variable `b` | `gfun <{a}> <{b}> [c];`
 `cfun` | ✅ | ✅ | Calls function `a` with arguments `b` | `cfun <{a}> [b];`
 `ret` | ✅ | ✅ | Returns value(s) `a` | `ret [a];`
 `if` | ✅ | ✅ | If condition `a` is met, continues execution | `if {a};`

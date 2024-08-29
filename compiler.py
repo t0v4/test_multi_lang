@@ -34,6 +34,7 @@ class Compiler():
         ops = loc1.splitlines()
         loc1 = b""
         for op in ops:
+            op = op.strip()
             op_code = op.split(" ")[0]
             op_code.replace(";","")
             op_split = op_code.split("_")
