@@ -2,3 +2,4 @@
 /brows/*
 !/tests/*
 *.pyc
+*.bat
