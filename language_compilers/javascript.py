@@ -7,6 +7,7 @@ class JavascriptCompiler():
         self.variables = {}
         self.toggle_contant_evaluation = False
         self.log = logger.Logger()
+        self.global_idn = ""
         self.consts = {
             "lang": "\"js\""
         }
@@ -44,6 +45,7 @@ class JavascriptCompiler():
             parsed_command[f"arg_{arg_num}"] += cursor.decode()
             cursor = loc1.read(1)
         opcode = parsed_command["op"]
+        loc2 += self.global_idn
         if opcode == "wrt":
             loc2 += "console.log("
             current_arg = 0
@@ -263,7 +265,7 @@ class JavascriptCompiler():
             loc2 += ";"
         elif opcode == "idn":
             amount = int(parsed_command["arg_0"])
-            loc2 += "    "*amount
+            self.global_idn = "    "*amount
         elif opcode == "fiv":
             var_name = parsed_command["arg_0"]
             callback = parsed_command["arg_1"]
